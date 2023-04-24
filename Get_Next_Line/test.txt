@@ -1,1 +1,2 @@
-123456789 10 11 12 13 14 15
+Sì, è possibile
+ che l'errore sia causato da un problema di allocazione
