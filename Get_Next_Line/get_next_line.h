@@ -6,7 +6,7 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:51:12 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/04/17 17:28:04 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/04/28 01:07:35 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ int		ft_strchr(char *s1, char c);
 size_t	ft_strlen(char *str);
 void	*ft_free(char *s1, char *s2);
 size_t	ft_is_newline(char c);
+int     ft_chrpos(char *s1, char c);
+char    *ft_print_string(char *copy);
+char    *ft_copy(char *copy);
+char    *ft_backup(char *copy, char *copy2, char *backup);
 
 #endif
 

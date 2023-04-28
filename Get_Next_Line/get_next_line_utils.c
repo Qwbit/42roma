@@ -6,7 +6,7 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 19:46:39 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/04/13 19:47:17 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/04/27 03:20:05 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,24 @@ int	ft_strchr(char *s1, char c)
 	}
 	return (0);
 }
+
+int ft_chrpos(char *s1, char c)
+	{
+		size_t	i;
+
+	i = 0;
+	if (!s1)
+		return (0);
+	while (s1[i])
+	{
+		if (s1[i] == c)
+		{
+			return (i);
+		}
+		i++;
+	}
+	return (0);		
+	}
 
 char	*ft_strjoin(char *s1, char *s2)
 {

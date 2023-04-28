@@ -1,2 +1,9 @@
-Sì, è possibile
- che l'errore sia causato da un problema di allocazione
+Sì,
+è
+poss
+ibile
+che
+l'errore
+sia
+causato da un 
+problema di allocazione
