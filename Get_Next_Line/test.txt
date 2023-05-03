@@ -1,9 +1,12 @@
-Sì,
-è
-poss
-ibile
-che
-l'errore
-sia
-causato da un 
-problema di allocazione
+se
+fosse
+gatto
+miao
+se
+fosse
+cane
+bau
+se
+fosse
+tardi
+ciao

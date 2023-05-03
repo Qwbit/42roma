@@ -6,17 +6,31 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 19:46:39 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/04/27 03:20:05 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/05/03 20:55:52 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_is_newline(char c)
+char	*ft_strdup(const char *s1)
 {
-	if (c == '\n')
-		return (1);
-	return (0);
+	int		i;
+	char	*p;
+
+	i = 0;
+	while (s1[i])
+		i++;
+	p = malloc(i + 1);
+	if (!p)
+		return (0);
+	i = 0;
+	while (s1[i])
+	{
+		p[i] = s1[i];
+		i++;
+	}
+	p[i] = 0;
+	return (p);
 }
 
 void	*ft_free(char *s1, char *s2)
@@ -38,11 +52,25 @@ size_t	ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_strchr(char *s1, char c)
+int	ft_strrchr(char *s, int c)
 {
-	size_t	i;
+	int		i;
+	
+	i = ft_strlen(s);
+	while (i >= 0)
+	{
+		if (s[i] == (char)c)
+		{
+			return (i);
+		}
+		i--;
+	}
+	return (0);
+}
 
-	i = 0;
+int	ft_strchr_pos(char *s1, char c, int i)
+{
+	
 	if (!s1)
 		return (0);
 	while (s1[i])
@@ -56,11 +84,9 @@ int	ft_strchr(char *s1, char c)
 	return (0);
 }
 
-int ft_chrpos(char *s1, char c)
+int ft_chrpos(char *s1, char c, int i)
 	{
-		size_t	i;
-
-	i = 0;
+	
 	if (!s1)
 		return (0);
 	while (s1[i])

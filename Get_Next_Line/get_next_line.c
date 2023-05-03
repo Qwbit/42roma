@@ -6,7 +6,7 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:18:37 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/04/28 03:24:25 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/05/03 23:40:14 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,92 +15,101 @@
 char *ft_read(int fd)
 {
     
-    int byte_read;
+    
     char *buffer;
     
-    buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+    buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE));
     if (!buffer)
         return(NULL);    
-    byte_read = read(fd, buffer, BUFFER_SIZE);
-
+    read(fd, buffer, BUFFER_SIZE);
     
     return (buffer);
 }
 
-char *ft_print_string(char *copy)
+char *get_new_line(int fd);
+
+char *ft_relocate(int *i, int *pos, char *stack, int fd)
 {
-int i;
-char *print;
-i = 0;
-print = NULL;
 
-if (ft_strchr(copy, '\n') == 1)
+int backup_set;
+int j;
+char *backup;
+
+backup = NULL;
+free(backup);
+
+j = ft_strrchr(stack, '\n');
+backup_set = (ft_strlen(stack) - j);
+j = 0;
+if ( backup_set <= 2)
     {
-        print = malloc(sizeof(char) * (ft_chrpos(copy, '\n') + 1));
-        while (i <= ft_chrpos(copy, '\n'))
-            {
-                print[i] = copy[i];
-                i++;
-            }
-            print[i] = '\0';
-            return(print);
+        
+        free(stack);
+        stack = NULL;
+        stack = ft_strdup(ft_read(fd));
+        return(get_new_line(fd));
     }
-
-return(NULL);
-}
-
-char *ft_copy(char *copy)
+else
     {
-        int i;
-        char *copy2;    
-        i = ft_chrpos(copy, '\n');  
-        copy2 = malloc(sizeof(char) * (ft_strlen(copy) - i));
-        while(copy[i])
-            {
-                copy2[i] = copy[i];
-                i++;
-            }
-        free(copy);
-        copy = copy2;
-        return(copy);        
-    }
+        backup = malloc(sizeof(char) * backup_set);
+        while(stack[*i])
+        {
 
-char *ft_backup(char *copy, char *copy2, char *backup)
-{
-    int len;
-    int i;
-    int j;
-    i = 0;
-    j = 0;
-    len = ft_strlen(backup);
-    free(copy2);
-    copy2 = copy;
-    free(copy);
-    copy = malloc(sizeof(char) * (len + ft_strlen(copy2)));
-    
-    while(backup[i])
-        {
-            copy[i] = backup[i];
-            i++;
-        }
-   
-    while(copy2[j])
-        {
-            copy[i] = copy2[j];
-            i++;
+            backup[j] = stack[*i];
+            *i = *i + 1;         
             j++;
         }
-    free(backup);
-    return(copy);
+    }
+    
+    free(stack);
+
+    stack = ft_strjoin(backup,ft_strdup(ft_read(fd)));
+    
+    *i = 0;
+    *pos = 0;
+    return(get_new_line(fd));
 }
 
+char *get_new_line(int fd)
+{
+static char *stack;
+char *test;
+char *new_line;
+static int i;
+static int pos;
+int j;
+
+j = 0;
+i = i + 0;
+pos = pos + 0;
+if (!stack)
+{
+    stack = ft_strdup(ft_read(fd));
+    stack[BUFFER_SIZE + 1] = '\0';
+}
+test = stack;
+if (ft_strchr_pos(stack, '\n', i))
+    pos = ft_chrpos(stack, '\n', i) + 1;
+else
+    return(ft_relocate(&i, &pos, stack, fd));
+test = stack;
+new_line = malloc(sizeof(char) * ((stack - (stack-pos)) + 1));
+while(i < pos)
+    {
+        new_line[j] = stack[i];
+        i++;
+        j++;
+    }
+    new_line[j] = '\0';
+return(new_line);
+}
 
 
 
 char *get_next_line(int fd)
 {
   
-return(print);
+return(get_new_line(fd));
     
 }
 
@@ -119,4 +128,8 @@ int main()
     printf("%s", get_next_line(fd));
     printf("%s", get_next_line(fd));
     printf("%s", get_next_line(fd));
+    printf("%s", get_next_line(fd));
+    printf("%s", get_next_line(fd));
+    printf("%s", get_next_line(fd));
+
 }
