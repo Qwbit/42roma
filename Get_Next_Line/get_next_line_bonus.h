@@ -6,12 +6,12 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:51:12 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/05/18 11:23:42 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/05/18 11:24:40 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <unistd.h>
 # include <fcntl.h>

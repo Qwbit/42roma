@@ -6,11 +6,11 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 19:46:39 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/05/18 11:26:47 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/05/18 11:27:36 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strdup(const char *s1)
 {
