@@ -6,11 +6,12 @@
 #    By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/03 19:51:24 by dbaldoni          #+#    #+#              #
-#    Updated: 2023/11/03 22:19:43 by dbaldoni         ###   ########.fr        #
+#    Updated: 2023/11/04 00:32:29 by dbaldoni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES = Main.c Hook.c Math.c Render.c Select.c /
+SOURCES = Main.c Hook.c Math.c Render.c Select.c \
+
 OBJECTS = $(SOURCES:.c=.o)
 
 CC = gcc -g -fsanitize=address 
@@ -34,7 +35,7 @@ libmlx:
 clean:
 		rm -f $(OBJECTS) fractol
 		make -C libft clean
-		make -C libmlx clean
+		make -C minilibx-linux clean
 
 fclean: clean
 		rm -f server client libft/libft.a

@@ -6,7 +6,7 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 15:24:31 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/11/03 23:56:17 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/11/04 00:30:30 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@ void ft_init(t_fractal *fractal, t_render *render)
     render->image = mlx_new_image(fractal->mlx_connection, WIDTH, HEIGHT);
     render->data = mlx_get_data_addr(render->image, &render->bpp, &render->size_line, &render->endian);
     fractal->render = render;
+}
+
+int close_window(t_fractal *fractal)
+{
+    mlx_destroy_image(fractal->mlx_connection, fractal->render->image);
+    mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
+    mlx_destroy_display(fractal->mlx_connection);
+    free(fractal->mlx_connection);
+    exit(EXIT_SUCCESS);
 }
 
 int ft_select_fractal(t_fractal *fractal, int argc, char *argv[])

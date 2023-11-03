@@ -6,7 +6,7 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 19:59:13 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/11/03 23:56:55 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/11/04 00:29:51 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,6 @@ int key_press(int keycode, t_fractal *fractal);
 int key_hook(int keycode, t_fractal *fractal);
 int mouse_move_hook(int x, int y, t_fractal *fractal);
 int mouse_button_hook(int button, int x, int y, t_fractal *fractal);
+
+int close_window(t_fractal *fractal);
 #endif

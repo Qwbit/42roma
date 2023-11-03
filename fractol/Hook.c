@@ -6,20 +6,12 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 16:02:00 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/11/04 00:10:29 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/11/04 00:30:29 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int close_window(t_fractal *fractal)
-{
-    mlx_destroy_image(fractal->mlx_connection, fractal->render->image);
-    mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
-    mlx_destroy_display(fractal->mlx_connection);
-    free(fractal->mlx_connection);
-    exit(EXIT_SUCCESS);
-}
 
 int key_press(int keycode, t_fractal *fractal)
 {
