@@ -6,7 +6,7 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 15:24:31 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/11/03 23:38:11 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/11/03 23:56:17 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int ft_select_fractal(t_fractal *fractal, int argc, char *argv[])
     }
     else
     {
-        ft_putstr_fd("Error\n", 0);
+        ft_putstr_fd(ERROR_MESSAGE, 0);
         exit(EXIT_FAILURE);
     }
     return (0);

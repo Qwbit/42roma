@@ -6,7 +6,7 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 19:59:13 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/11/03 22:02:19 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/11/03 23:56:55 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ cc fractol.c minilibx-linux/libmlx.a -lX11 -lXext -lm -o fractol
 #include <stdlib.h>
 #include <stdio.h>
 
+#define ERROR_MESSAGE "Write mandelbrot for the mandelbrot set\nor \njulia <real> <imaginary> for the julia set\n"
 #define WIDTH 800
 #define HEIGHT 800
 #define ITERATIONS 10
