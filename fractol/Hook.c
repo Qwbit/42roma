@@ -6,7 +6,7 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 16:02:00 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/11/03 23:02:41 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/11/04 00:10:29 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int close_window(t_fractal *fractal)
 
 int key_press(int keycode, t_fractal *fractal)
 {
-   // printf("%d\n", keycode);
     if (keycode == 65453 || keycode == 45)
         fractal->movement.Scale = fractal->movement.Scale * 2;
     if (keycode == 65451 || keycode == 43)
@@ -31,23 +30,26 @@ int key_press(int keycode, t_fractal *fractal)
     if (keycode == 65361)
         fractal->movement.Horizontal = fractal->movement.Horizontal - (0.5 * fractal->movement.Scale);
     if (keycode == 65362)
-        fractal->movement.Vertical = fractal->movement.Vertical - (0.5 * fractal->movement.Scale);
+        fractal->movement.Vertical = fractal->movement.Vertical + (0.5 * fractal->movement.Scale);
     if (keycode == 65363)
         fractal->movement.Horizontal = fractal->movement.Horizontal + (0.5 * fractal->movement.Scale);
     if (keycode == 65364)
-        fractal->movement.Vertical = fractal->movement.Vertical + (0.5 * fractal->movement.Scale);
+        fractal->movement.Vertical = fractal->movement.Vertical - (0.5 * fractal->movement.Scale);
     if (keycode == 105)
         fractal->movement.Iteration = fractal->movement.Iteration + 10;
     if (keycode == 117)
         fractal->movement.Iteration = fractal->movement.Iteration - 10;
     if (keycode == 115)
         fractal->movement.Speed = fractal->movement.Speed + 1;
-    return(0);
+    return (0);
 }
 
 int key_hook(int keycode, t_fractal *fractal)
 {
-
+    if (keycode == 109)
+        fractal->Select = 0;
+    if (keycode == 106)
+        fractal->Select = 1;
     if (keycode == 65307)
         close_window(fractal);
     if (keycode == 99)
@@ -85,7 +87,9 @@ int mouse_move_hook(int x, int y, t_fractal *fractal)
     mlx_string_put(fractal->mlx_connection, fractal->mlx_window, WIDTH - (WIDTH / 20) * 19, HEIGHT - (HEIGHT / 20) * 19 + 80, 0xFFFFFF, str);
     str = ("Mouse Wheel Button: change julia C");
     mlx_string_put(fractal->mlx_connection, fractal->mlx_window, WIDTH - (WIDTH / 20) * 19, HEIGHT - (HEIGHT / 20) * 19 + 100, 0xFFFFFF, str);
-    
+    str = ("m or j : switch between mandelbrot and julia");
+    mlx_string_put(fractal->mlx_connection, fractal->mlx_window, WIDTH - (WIDTH / 20) * 19, HEIGHT - (HEIGHT / 20) * 19 + 120, 0xFFFFFF, str);
+
     return (0);
 }
 
@@ -113,15 +117,15 @@ int ft_Mouse_Scale(int button, int x, int y, t_fractal *fractal)
 
 int mouse_button_hook(int button, int x, int y, t_fractal *fractal)
 {
-   
-    if(button == 2)
+
+    if (button == 2)
     {
-    fractal->JuliaX = map(x, -2, 2, 0, WIDTH);
-    fractal->JuliaY = map(y, -2, 2, 0, HEIGHT);
+        fractal->JuliaX = map(x, -2, 2, 0, WIDTH);
+        fractal->JuliaY = map(y, -2, 2, 0, HEIGHT);
     }
-  
+
     ft_Mouse_Scale(button, x, y, fractal);
-    
+
     ft_iteration(fractal, fractal->render);
     mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_window, fractal->render->image, 0, 0);
     return (0);
