@@ -6,7 +6,7 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 19:59:13 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/11/04 00:29:51 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/11/04 16:04:04 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ t_complex ft_comp_mult(t_complex z1, t_complex z2);
 t_complex ft_comp_pow(t_complex z);
 t_fractal ft_mandelbrot_set(t_fractal *fractal, t_render *render);
 t_fractal ft_julia_set(t_fractal *fractal, t_render *render);
+t_fractal ft_burningship_set(t_fractal *fractal, t_render *render);
 double ft_vector_lenght(t_complex z1, t_complex z2);
 double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 t_fractal ft_iteration(t_fractal *fractal, t_render *render);

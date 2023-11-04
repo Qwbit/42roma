@@ -6,7 +6,7 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 15:24:31 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/11/04 00:30:30 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/11/04 17:05:37 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int ft_select_fractal(t_fractal *fractal, int argc, char *argv[])
 {
     if (argc == 2 && ft_strncmp(argv[1], "mandelbrot", 10) == 0)
         fractal->Select = 0;
+    else if (argc == 2 && ft_strncmp(argv[1], "burningship", 11) == 0)
+        fractal->Select = 2;
     else if (argc == 4 && ft_strncmp(argv[1], "julia", 5) == 0)
     {
 

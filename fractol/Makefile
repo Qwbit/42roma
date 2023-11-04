@@ -6,7 +6,7 @@
 #    By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/03 19:51:24 by dbaldoni          #+#    #+#              #
-#    Updated: 2023/11/04 00:32:29 by dbaldoni         ###   ########.fr        #
+#    Updated: 2023/11/04 17:04:48 by dbaldoni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ libmlx:
 clean:
 		rm -f $(OBJECTS) fractol
 		make -C libft clean
-		make -C minilibx-linux clean
+
 
 fclean: clean
 		rm -f server client libft/libft.a

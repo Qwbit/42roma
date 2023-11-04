@@ -6,7 +6,7 @@
 /*   By: dbaldoni <dbaldoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 02:36:49 by dbaldoni          #+#    #+#             */
-/*   Updated: 2023/11/03 22:29:14 by dbaldoni         ###   ########.fr       */
+/*   Updated: 2023/11/04 18:06:20 by dbaldoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ t_fractal ft_iteration(t_fractal *fractal, t_render *render)
         {
             if(fractal->Select == 1)
             ft_julia_set(fractal, render);
+            else if(fractal->Select == 2)
+            ft_burningship_set(fractal, render);
             else
             ft_mandelbrot_set(fractal, render);
             ft_store_pixel(fractal, render);
